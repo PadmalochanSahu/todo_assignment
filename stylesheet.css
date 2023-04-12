@@ -1,0 +1,30 @@
+table,th,td{
+    border: 1px solid black;
+}
+td{
+    padding-left: 7px;
+}
+table{
+    width: 80%;
+    position: absolute;
+    right: 10%;
+}
+
+.header{
+    display: flex;
+}
+.text_input{
+    height: 20px;
+    position: absolute;
+    right: 8%;
+    top: 3%;
+}
+#btn{
+    height: 26px;
+    position: absolute;
+    right: 3%;
+    top: 3%;
+}
+h1{
+    margin-top: 10px;
+}

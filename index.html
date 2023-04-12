@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data table from Api</title>
+    <link rel="stylesheet" href="/stylesheet.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+        <h1>DATA TABLE FROM API</h1>
+        <label for="text"></label>
+        <input type="text" name="text" id="input" class="text_input" placeholder="Search">
+        <button id="btn">Search</button>   
+    </div>
+    <button id="run" onclick="fetchApi()">Posts</button>
+    <button id="run2" onclick="fetchApi2()">Todo's</button>
+    <button id="run3" onclick="fetchApi3()">Album's</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Srl no.</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                </tr>
+            </thead>
+            <tbody id="first">
+                
+            </tbody>
+        </table>
+    </div>
+<script src="./script.js"></script>
+</body>
+</html>
