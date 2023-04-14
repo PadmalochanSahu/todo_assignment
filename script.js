@@ -22,9 +22,11 @@ function getDataPost() {
         
         });
       });
+      
 }
 
 getDataPost();
+
 
 function getDataTodo() {
   let url = "https://jsonplaceholder.typicode.com/todos";
@@ -88,8 +90,9 @@ btn.addEventListener("click", function click() {
     }
   }
 });
-let one = document.getElementById("one");
-one.addEventListener("click", function clickOne() {
+one = document.getElementById('one');
+one.addEventListener('click',function clickOne() {
+   console.log('clicked');
     let record = document.getElementById('first')
     let records = record.getElementsByTagName('tr');
     console.log(records);
@@ -103,48 +106,41 @@ one.addEventListener("click", function clickOne() {
         let end_index = start_index + (records_per_page)
         let displayScreen = "";
         for(let i =start_index; i<end_index; i++){
-            displayScreen += records[i].innerHTML;
+            displayScreen += `<tr>${records[i].innerHTML}</tr>`;
             console.log(records[i]);
             
         }
        record.innerHTML = displayScreen;
     }
+    genrateBtn()
     DisplayRecords()
-});
-
-
-let two = document.getElementById("two");
-two.addEventListener("click", function clickOne() {
-    let url = "https://jsonplaceholder.typicode.com/posts";
-    fetch(url)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        let tableHead = `<tr>
-          <th>Srl no.</th>
-          <th>Title</th>
-          <th>Body</th>
-           </tr>`;
-        document.getElementById("tableHead").innerHTML = tableHead;
-
-    let tableData = "";
-    data.map((element, index) => {
-      tableData += ` <tr>
-          <td>${element.id}</td>
-          <td>${element.title}</td>
-          <td>${element.body}</td>
-      </tr>`;
-    let page = 2;
-    let perPage = 10;
-    if (index < page * perPage && index >= (page - 1) * perPage) {
-      let pageData = element;
-      console.log(pageData);
-      document.getElementById("first").innerHTML = tableData;
+    function genrateBtn() {
+      let prevBtn = `<li id="pre" class="pageSelect">Previous</li>`;
+      let nextBtn = `<li id="nex" class="pageSelect">Next</li>`
+      let button = '';
+      for(let i= 1; i <= total_page;i++){
+        button +=  `<li id="one" class="pageSelect">${i}</li>`
+      }
+      document.getElementById('page').innerHTML = `${prevBtn} ${button} ${nextBtn}`;
     }
+   
   });
-});
-});
+
+  
+  function previousBtn(){
+    console.log('p clicked')
+    page--;
+    DisplayRecords();
+  }
+  function nextBtn(){
+    console.log('n clicked')
+    page++;
+    DisplayRecords();
+    
+  }
+
+
+
 
 
 function fetchApi() {
